@@ -1,0 +1,10 @@
+package com.springrest.SpringRestDemo.restController;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping("employee/vi")
+public class EmployeeController {
+	
+	@
+
+}

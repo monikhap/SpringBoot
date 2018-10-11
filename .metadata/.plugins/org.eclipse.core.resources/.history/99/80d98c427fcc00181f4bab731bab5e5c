@@ -1,0 +1,23 @@
+package com.springbatch.SpringBatchDemo;
+
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobExecution;
+import org.springframework.batch.core.JobParameters;
+import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Hello world!
+ *
+ */
+public class SpringBatchApp 
+{
+    public static void main( String[] args ) throws Exception
+    {
+       ApplicationContext context=new ClassPathXmlApplicationContext("jobCongig.xml");
+       JobLauncher launcher=(JobLauncher) context.getBean("jobLauncher");
+       Job demoJob=(Job) context.getBean("demoJob");
+       JobExecution execute=launcher.run(demoJob, new JobParameters());
+    }
+}

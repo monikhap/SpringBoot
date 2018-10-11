@@ -1,0 +1,19 @@
+package com.springrest.SpringRestDemo.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.springrest.SpringRestDemo.Dto.EmployeeDetails;
+import com.springrest.SpringRestDemo.repository.EmployeeRepository;
+
+public class EmployeeServiceImpl {
+	
+	@Autowired EmployeeRepository empRepo;
+	
+	public ResponseEntity<Boolean> saveEmployee(@RequestBody EmployeeDetails employee){
+		return null;
+		
+	}
+
+}

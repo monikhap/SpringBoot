@@ -1,0 +1,14 @@
+package com.springbatch.SpringBatchDemo.tasklet;
+
+import org.springframework.scheduling.annotation.Scheduled;
+
+public class MyScheduler {
+	
+	@Scheduled(cron = "* */2 * * * ?")
+	public void execute() throws Exception {
+
+		System.out.println("SpringBatchDemo");
+
+	}
+
+}

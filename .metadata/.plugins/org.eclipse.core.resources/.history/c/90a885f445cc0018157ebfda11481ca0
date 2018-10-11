@@ -1,0 +1,14 @@
+package com.springrest.SpringRestDemo.serviceImpl;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.springrest.SpringRestDemo.Dto.EmployeeDetails;
+
+public class EmployeeServiceImpl {
+	
+	public ResponseEntity<Boolean> saveEmployee(@RequestBody EmployeeDetails employee){
+		
+	}
+
+}

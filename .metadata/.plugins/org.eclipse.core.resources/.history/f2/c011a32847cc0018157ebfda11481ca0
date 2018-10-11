@@ -1,0 +1,5 @@
+package com.springrest.SpringRestDemo.repository;
+
+public class EmployeeRepository {
+
+}

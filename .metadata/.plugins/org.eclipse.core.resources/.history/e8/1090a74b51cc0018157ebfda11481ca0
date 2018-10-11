@@ -1,0 +1,27 @@
+package com.springrest.SpringRestDemo.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.springrest.SpringRestDemo.Dto.EmployeeDetails;
+import com.springrest.SpringRestDemo.repository.EmployeeRepository;
+import com.springrest.SpringRestDemo.service.EmployeeService;
+
+public class EmployeeServiceImpl implements EmployeeService{
+	
+	@Autowired EmployeeRepository empRepo;
+	
+	public boolean saveEmployee(@RequestBody EmployeeDetails employee){
+		
+		EmployeeDetails empDetails=new EmployeeDetails();
+		empDetails.setEmpId(employee.getEmpId());
+		empDetails.setEmpName(employee.getEmpName());
+		empDetails.setContact(employee.getContact());
+		
+		empRepo.save(empDetails);
+		
+		return true;
+		
+	}
+
+}

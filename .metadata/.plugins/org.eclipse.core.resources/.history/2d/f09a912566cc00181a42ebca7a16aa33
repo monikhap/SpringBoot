@@ -1,0 +1,58 @@
+package com.springrest.SpringRestDemo.restController;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springrest.SpringRestDemo.Dto.EmployeeDetails;
+import com.springrest.SpringRestDemo.service.EmployeeService;
+
+@RestController
+@RequestMapping("emp/vi")
+public class EmployeeController {
+
+	@Autowired
+	EmployeeService empService;
+
+	@GetMapping("/test")
+	public ResponseEntity<String> testService() {
+		return new ResponseEntity<String>("Welcome", HttpStatus.OK);
+	}
+
+	@PostMapping("/saveEmployee")
+	public ResponseEntity<String> saveEmployee(@RequestBody EmployeeDetails employee) {
+		Boolean isVerified = false;
+
+		isVerified = empService.saveEmployee(employee);
+
+		if (isVerified)
+			return new ResponseEntity<String>("Employee details saved.", HttpStatus.OK);
+		else
+			return new ResponseEntity<String>("Unable to save Employee details.", HttpStatus.BAD_REQUEST);
+	}
+
+	@GetMapping("/getEmployeeDetails")
+	public ResponseEntity<List<EmployeeDetails>> getEmployeeDetails() {
+
+		List<EmployeeDetails> empDetails = empService.getEmployeeDetails();
+
+		return new ResponseEntity<List<EmployeeDetails>>(empDetails, HttpStatus.OK);
+	}
+	
+	@GetMapping("/getEmployeeDetailsById")
+	public ResponseEntity<Optional<EmployeeDetails>> getEmployeeDetailsById(Integer empId) {
+
+		Optional<EmployeeDetails> empDetails = empService.getEmployeeDetailsById(empId);
+
+		return new ResponseEntity<Optional<EmployeeDetails>>(empDetails, HttpStatus.OK);
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.springbatch.SpringBatchDemo;
+
+/**
+ * Hello world!
+ *
+ */
+public class SpringBatchApp 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}

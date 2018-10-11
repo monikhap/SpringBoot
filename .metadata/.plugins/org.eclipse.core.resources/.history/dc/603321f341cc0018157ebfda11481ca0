@@ -1,0 +1,27 @@
+package com.springrest.SpringRestDemo.restController;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("api/vi")
+public class SpringRestController {
+	
+	@RequestMapping(value="/test",method=RequestMethod.GET)
+	public ResponseEntity<String> testService(){
+		return new ResponseEntity<String>("Welcome",HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/verifyLogin",method=RequestMethod.POST)
+	public ResponseEntity<Boolean> verifyLogin(){
+		Boolean isVerified=false;
+		
+		
+		
+		return new ResponseEntity<Boolean>("Welcome",HttpStatus.OK);
+	}
+	
+}

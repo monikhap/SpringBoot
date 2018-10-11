@@ -1,0 +1,27 @@
+package com.springrest.SpringRestDemo.restController;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.springrest.SpringRestDemo.Dto.LoginDto;
+
+@RequestMapping("employee/vi")
+public class EmployeeController {
+	
+	@PostMapping("/saveEmployee")
+	public ResponseEntity<Boolean> saveEmployee(@RequestBody LoginDto loginDto){
+		Boolean isVerified=false;
+		
+		if(loginDto.getUserName().equalsIgnoreCase("Monikha") && loginDto.getPassword().equalsIgnoreCase("test"))
+			isVerified=true;
+		
+		if(isVerified)
+			return new ResponseEntity<Boolean>(isVerified,HttpStatus.OK);
+		else
+			return new ResponseEntity<Boolean>(isVerified,HttpStatus.UNAUTHORIZED);
+	}
+
+}

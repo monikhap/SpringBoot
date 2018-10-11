@@ -1,0 +1,13 @@
+package com.springrest.SpringRestDemo;
+
+/**
+ * Hello world!
+ *
+ */
+public class SpringRestApp 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}

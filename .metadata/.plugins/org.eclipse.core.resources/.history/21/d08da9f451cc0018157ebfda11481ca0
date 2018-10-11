@@ -1,0 +1,12 @@
+#Tomcat Port
+server.port:8081
+
+# Connection url for mysql database
+spring.datasource.url=jdbc:mysql://localhost:3306/stgInfo
+
+# Username and password
+spring.datasource.username = root
+spring.datasource.password = root
+
+#Shoq JPA sql 
+spring.jpa.show-sql=true

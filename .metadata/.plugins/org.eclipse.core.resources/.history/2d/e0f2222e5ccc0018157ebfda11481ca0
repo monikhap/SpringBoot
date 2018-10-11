@@ -1,0 +1,41 @@
+package com.springrest.SpringRestDemo.Dto;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class EmployeeDetails {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="emp_id")
+	public int empId;
+	
+	@Column(name="emp_name")
+	public String empName;
+	
+	@Column(name="contact")
+	public double contact;
+
+	public int getEmpId() {
+		return empId;
+	}
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
+	public String getEmpName() {
+		return empName;
+	}
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+	public double getContact() {
+		return contact;
+	}
+	public void setContact(double contact) {
+		this.contact = contact;
+	}
+	
+}

@@ -1,0 +1,16 @@
+package com.springbatch.SpringBatchDemo.tasklet;
+
+import java.util.Date;
+
+import org.springframework.scheduling.annotation.Scheduled;
+
+public class MyScheduler {
+	
+	@Scheduled(cron = "*/60 * * * * ?")
+	public void execute() throws Exception {
+
+		System.out.println("SpringBatchDemo "+new Date().toString());
+
+	}
+
+}
