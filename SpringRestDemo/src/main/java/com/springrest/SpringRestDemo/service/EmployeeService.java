@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.springrest.SpringRestDemo.Dto.EmployeeDetails;
 
-@Service
-@Repository
+//@Service
+//@Repository
 public interface EmployeeService {
 	
 	public boolean saveEmployee(@RequestBody EmployeeDetails employee);

@@ -16,7 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	EmployeeRepository empRepo;
 
-	public boolean saveEmployee(@RequestBody EmployeeDetails employee) {
+	public boolean saveEmployee(EmployeeDetails employee) {
 
 		EmployeeDetails empDetails = new EmployeeDetails();
 		empDetails.setEmpId(employee.getEmpId());

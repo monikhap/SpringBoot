@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +23,7 @@ public class EmployeeController {
 	EmployeeService empService;
 	
 	@PostMapping("/saveEmployee")
-	public ResponseEntity<String> saveEmployee(@RequestBody EmployeeDetails employee) {
+	public ResponseEntity<String> saveEmployee(EmployeeDetails employee) {
 		Boolean isSaved = false;
 
 		isSaved = empService.saveEmployee(employee);
@@ -51,25 +50,12 @@ public class EmployeeController {
 		return new ResponseEntity<EmployeeDetails>(empDetails, HttpStatus.OK);
 	}
 
-	@PutMapping("/updateEmployee")
-	public ResponseEntity<String> updateEmployee(EmployeeDetails employee) {
-
-		Boolean isUpdated = false;
-
-		isUpdated = empService.updateEmployee(employee);
-
-		if (isUpdated)
-			return new ResponseEntity<String>("Employee details updated.", HttpStatus.OK);
-		else
-			return new ResponseEntity<String>("Unable to update Employee details.", HttpStatus.BAD_REQUEST);
-	}
-
 	@DeleteMapping("/deleteEmployee")
-	public ResponseEntity<String> deleteEmployee(EmployeeDetails employee) {
+	public ResponseEntity<String> deleteEmployee(Integer empId) {
 
 		Boolean isDeleted = false;
-
-		isDeleted = empService.deleteEmployee(employee);
+		EmployeeDetails empDetails = empService.getEmployeeDetailsById(empId);
+		isDeleted = empService.deleteEmployee(empDetails);
 
 		if (isDeleted)
 			return new ResponseEntity<String>("Employee details deleted.", HttpStatus.OK);
